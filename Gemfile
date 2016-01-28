@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-ruby '1.9.3'
+ruby '2.0.0'
 
 gem 'rails', '3.0.10'
 
@@ -8,9 +8,9 @@ gem 'rails', '3.0.10'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2', '~> 0.2.11'
-gem 'rake', '0.9.2.2'
 
 gem 'thin'
+gem 'eventmachine', '1.0.3'
 
 # Bundle the extra gems:
 # gem 'bj'

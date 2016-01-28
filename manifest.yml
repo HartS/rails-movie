@@ -1,10 +1,12 @@
 applications:
 - name: rails-movie
+  buildpack: https://github.com/cloudfoundry/ruby-buildpack#v1.6.12
   instances: 1
   memory: 128
   services:
     ${name}-db:
       type: mysql
+  stack: cflinuxfs2
   stackato:
     hooks:
       pre-running:
