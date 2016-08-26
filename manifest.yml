@@ -1,17 +1,13 @@
 applications:
 - name: rails-movie
+  buildpack: https://github.com/cloudfoundry/ruby-buildpack
   instances: 1
   memory: 128
   services:
     ${name}-db:
       type: mysql
+  stack: cflinuxfs2
   stackato:
     hooks:
       pre-running:
-      # change the DATABASE_URL scheme from mysql:// to mysql2://
-      - export DATABASE_URL=`echo $DATABASE_URL | sed 's/mysql/mysql2/'`
-      # run database migration after the DATABASE_URL has been changed
-      # to use the mysql2:// scheme
       - rake db:migrate
-    min_version:
-      client: 1.4.3
